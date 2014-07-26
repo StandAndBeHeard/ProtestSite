@@ -1,0 +1,11 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/MasterPage.master" AutoEventWireup="true" CodeFile="SubPage.master.cs" Inherits="MasterPages_SubPage" %>
+<%@ Register src="../Controls/Breadcrumb.ascx" tagname="Breadcrumb" tagprefix="uc1" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+    <uc1:Breadcrumb ID="Breadcrumb1" runat="server" />
+    <div class="container content">
+        <asp:ContentPlaceHolder id="MainContent" runat="server" />
+    </div>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadHolder" Runat="Server"><asp:ContentPlaceHolder id="HeadHolder" runat="server" /></asp:Content>
