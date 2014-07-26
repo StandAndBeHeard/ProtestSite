@@ -12,6 +12,8 @@ public partial class Ajax_Comment : System.Web.UI.Page
 
     private ProtestLib.Comment comment = new ProtestLib.Comment();
 
+    private static ProtestLib.Comment lastComment;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         comment.ContentType = Request["contenttype"];
@@ -31,6 +33,7 @@ public partial class Ajax_Comment : System.Web.UI.Page
         {
             comment.UserId = AppUser.Current.User.Id;
             comment.Save();
+            lastComment = comment;
             OutputLit.Text = "{\"id\": " + comment.Id.ToString() + "}";
         }
         else
@@ -45,6 +48,12 @@ public partial class Ajax_Comment : System.Web.UI.Page
         List<string> errors = new List<string>();
         if (!AppUser.Current.IsAuthenticated) errors.Add("Please login first.");
         else if (comment.Body.Length < 10) errors.Add("Comment is too short.");
+
+        if (lastComment!=null)
+        {
+            if (comment.Body == lastComment.Body && comment.UserId == lastComment.UserId) errors.Add("You already posted this comment.");
+        }
+
         return errors.ToArray();
     }
 

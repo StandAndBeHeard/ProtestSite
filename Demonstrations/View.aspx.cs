@@ -41,6 +41,7 @@ public partial class Demonstrations_View : System.Web.UI.Page
 
     protected void JoinButton_Click(object sender, EventArgs e)
     {
+        AppUser.RequireLogin();
         if (AppUser.Current.IsAuthenticated && participant == null) ProtestLib.Participant.Join(AppUser.Current.User.Id, protest);
         Response.Redirect(protest.Url);
     }

@@ -85,8 +85,8 @@
             <div class="row">
                 <div class="col-md-6">                     
                     <p>
-                        2014 &copy; StandAndBeHeard.org. ALL Rights Reserved. 
-                        <a href="/terms.aspx">Terms of Service</a>
+                        2014 &copy; StandAndBeHeard.org. All Rights Reserved. 
+                        <a href="/terms.aspx">Terms of Service</a> | <a href="https://github.com/StandAndBeHeard">Source</a>
                     </p>
                 </div>
                 <div class="col-md-6">  
