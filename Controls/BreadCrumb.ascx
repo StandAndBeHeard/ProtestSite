@@ -3,7 +3,7 @@
     <div class="container">
         <h1 class="pull-left"><asp:Literal ID="PageNameLit" runat="server" /></h1>
         <ul class="pull-right breadcrumb">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <asp:Literal ID="OutputLit" runat="server" />
         </ul>
     </div>

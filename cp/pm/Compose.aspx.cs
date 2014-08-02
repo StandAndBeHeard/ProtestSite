@@ -55,7 +55,7 @@ public partial class cp_pm_Compose : System.Web.UI.Page
         int id = Convert.ToInt32(Request["Id"]);
         if (id>0)
         {
-            pm = ProtestLib.PrivateMessage.LoadPrivateMessage(id);
+            pm = ProtestLib.PrivateMessage.Load(id);
             if (pm.FromId != AppUser.Current.User.Id && pm.ToId != AppUser.Current.User.Id) Response.Redirect("/");
         }
         else

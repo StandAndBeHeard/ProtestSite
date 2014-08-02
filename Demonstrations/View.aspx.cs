@@ -50,7 +50,7 @@ public partial class Demonstrations_View : System.Web.UI.Page
     {
         if (participant != null)
         {
-            ProtestLib.Participant.DeleteParticipant(participant.Id);
+            ProtestLib.Participant.Delete(participant.Id);
             protest.UpdateParticipantCount();
         }
         Response.Redirect(protest.Url);
@@ -101,7 +101,7 @@ public partial class Demonstrations_View : System.Web.UI.Page
             ParticipantsLit.Text += "<a href=\"/cp/pm/compose.aspx?toId=" + participants[i].UserId.ToString() + "\" class=\"clearfix participant\" onclick=\"return requireLogin('Please login to send a private message');\"><img src=\"" + GravatarHelper.GetGravatarUrl(participants[i].Email) + "\" /> " + participants[i].UserName + "</a>";
         }
 
-        ProtestLib.User organizer = ProtestLib.User.LoadUser(protest.OrganizerId);
+        ProtestLib.User organizer = ProtestLib.User.Load(protest.OrganizerId);
         OrganizerLit.Text += "<a href=\"/cp/pm/compose.aspx?toId=" + protest.OrganizerId.ToString() + "\" class=\"clearfix participant\" onclick=\"return requireLogin('Please login to send a private message');\"><img src=\"" + GravatarHelper.GetGravatarUrl(organizer.Email) + "\" /> " + organizer.UserName + "</a>";
 
 
@@ -112,7 +112,7 @@ public partial class Demonstrations_View : System.Web.UI.Page
 
     private void PopulateUpdates()
     {
-        foreach (ProtestLib.ProtestUpdate update in ProtestLib.ProtestUpdates.LoadProtestUpdatesByProtestId(protest.Id))
+        foreach (ProtestLib.ProtestUpdate update in ProtestLib.ProtestUpdates.LoadByProtestId(protest.Id))
         {
             UpdatesLit.Text += "<p><i>" + GetDisplayTime(update.PostedDate, protest.Timezone) + "</i><br/>" + update.Body.Replace("\n", "<br/>") + "</p><hr/>";
         }

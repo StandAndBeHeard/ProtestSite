@@ -15,7 +15,7 @@ public partial class Demonstrations_Edit : System.Web.UI.Page
 
         int id = Convert.ToInt32(Request["id"]);
         if (id == 0) protest = new ProtestLib.Protest();
-        else protest = ProtestLib.Protest.LoadProtest(id);
+        else protest = ProtestLib.Protest.Load(id);
         
 
         MasterBase master = (MasterBase)Page.Master;
